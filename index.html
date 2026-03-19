@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Spacing Board</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero-panel">
+        <div>
+          <p class="eyebrow">Local-first project utility</p>
+          <h1>Project Spacing Board</h1>
+          <p class="hero-copy">
+            Keep design-note JSON files beside each project, update them quickly, and pin this board to the front when you need constant reference.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <button id="new-document" class="ghost">New Board</button>
+          <button id="open-document" class="ghost">Open JSON</button>
+          <button id="save-document" class="primary">Save JSON</button>
+        </div>
+      </header>
+
+      <section class="toolbar">
+        <div class="toolbar-group status-group">
+          <label class="field-label" for="board-title">Board Title</label>
+          <input id="board-title" class="title-input" type="text" placeholder="Project spacing board" />
+          <p id="file-status" class="file-status">Using an unsaved board.</p>
+        </div>
+        <div class="toolbar-group action-group">
+          <button id="add-column" class="ghost small">Add Column</button>
+          <button id="add-row" class="ghost small">Add Row</button>
+          <label class="toggle-card" for="pin-window">
+            <span>Pin to front</span>
+            <input id="pin-window" type="checkbox" />
+          </label>
+        </div>
+      </section>
+
+      <main class="board-panel">
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr id="column-row"></tr>
+            </thead>
+            <tbody id="board-body"></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <template id="column-header-template">
+      <th>
+        <div class="column-head">
+          <input class="column-title" type="text" />
+          <button class="icon-button remove-column" title="Remove column" aria-label="Remove column">×</button>
+        </div>
+      </th>
+    </template>
+
+    <template id="cell-template">
+      <td>
+        <textarea class="cell-input" rows="3"></textarea>
+      </td>
+    </template>
+
+    <template id="row-action-template">
+      <td class="row-actions-cell">
+        <button class="icon-button remove-row" title="Remove row" aria-label="Remove row">×</button>
+      </td>
+    </template>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>

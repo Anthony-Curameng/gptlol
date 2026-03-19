@@ -1,0 +1,21 @@
+{
+  "name": "project-spacing-board",
+  "version": "0.1.0",
+  "description": "A local-first desktop utility for project layout notes stored in JSON.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check main.js && node --check preload.js && node --check renderer.js"
+  },
+  "keywords": [
+    "electron",
+    "json",
+    "notes",
+    "desktop"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^37.2.0"
+  }
+}
