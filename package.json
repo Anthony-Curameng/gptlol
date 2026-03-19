@@ -1,11 +1,12 @@
 {
   "name": "project-spacing-board",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A local-first desktop utility for project layout notes stored in JSON.",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "check": "node --check main.js && node --check preload.js && node --check renderer.js"
+    "check": "node --check main.js && node --check preload.js && node --check renderer.js",
+    "dist:win": "electron-builder --win nsis portable"
   },
   "keywords": [
     "electron",
@@ -16,6 +17,48 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^37.2.0"
+    "electron": "^37.2.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.openai.projectspacingboard",
+    "productName": "Project Spacing Board",
+    "asar": true,
+    "files": [
+      "index.html",
+      "main.js",
+      "preload.js",
+      "renderer.js",
+      "styles.css",
+      "README.md",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Project Spacing Board"
+    }
   }
 }

@@ -40,6 +40,7 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
+  app.setAppUserModelId('com.openai.projectspacingboard');
   createWindow();
 
   app.on('activate', () => {
