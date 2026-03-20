@@ -1,6 +1,6 @@
 # Project Spacing Board
 
-A small local-first desktop utility for project design notes. It stores your board as plain JSON so you can keep the data file inside any project folder.
+A small local-first **Python** desktop utility for project design notes. It stores your board as plain JSON so you can keep the data file inside any project folder, and it can be packaged into a standalone Windows `.exe`.
 
 ## Features
 
@@ -8,42 +8,48 @@ A small local-first desktop utility for project design notes. It stores your boa
 - Add or remove columns as your project notes evolve
 - Add or remove rows for multiple design references
 - Open existing JSON files and save updated JSON files anywhere on disk
-- Toggle **Pin to front** to keep the window above others using Electron's always-on-top support
-- Runs entirely locally with no backend
-- Can be packaged for Windows as both an installer and a portable `.exe`
+- Toggle **Pin to front** to keep the window above others
+- Generate support files directly into a chosen project folder
+- Runs entirely locally with no backend and no Node/Electron runtime
+- Packages cleanly as a Windows executable with PyInstaller
 
-## Getting started
+## Run locally
 
 ```bash
-npm install
-npm start
+python app.py
 ```
 
 ## Package for Windows
 
-This repo is now configured with `electron-builder` for Windows packaging.
-
-### Build locally on Windows
+Install the build dependency and create the executable:
 
 ```bash
-npm install
-npm run dist:win
+python -m pip install -r requirements-build.txt
+python build_windows.py
 ```
 
-Build artifacts are written to the `release/` folder:
+The packaged executable is written to:
 
-- `Project Spacing Board-<version>-x64.exe` for the NSIS installer
-- `Project Spacing Board-<version>-x64-portable.exe` for the portable build
+- `release/ProjectSpacingBoard.exe`
 
-### Build from GitHub Actions
+## Build from GitHub Actions
 
 A workflow is included at `.github/workflows/build-windows.yml`.
 
-It can:
+It:
 
-- run on pushes to `main`
-- run manually with **workflow_dispatch**
-- upload the generated Windows installer and portable executable as build artifacts
+- runs on pushes to `main`
+- runs manually with **workflow_dispatch**
+- installs PyInstaller
+- builds the Windows `.exe`
+- uploads the generated executable as an artifact
+
+## Support files
+
+Use **Generate Support Files** inside the app to create these in any folder:
+
+- `<board-title>.json` with the current board data
+- `project-spacing-board.README.txt` with a quick reference for the generated files
 
 ## JSON shape
 
