@@ -1,0 +1,9 @@
+{
+  "default": {
+    "maximum_side_allowance_m": 3.0
+  },
+  "example_authority": {
+    "notes": "Authority confirmation required",
+    "wk_override_m": null
+  }
+}
