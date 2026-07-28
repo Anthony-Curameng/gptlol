@@ -1,5 +1,7 @@
-# PyInstaller onedir build for the native Windows application.
-a = Analysis(["src/wkcalc/__main__.py"], pathex=["src"], binaries=[], datas=[], hiddenimports=[], hookspath=[], hooksconfig={}, runtime_hooks=[], excludes=[])
+# PyInstaller desktop build configuration.
+from PyInstaller.utils.hooks import collect_data_files
+
+datas = [("data/authority_rules.json", "data")]
+a = Analysis(["main.py"], pathex=[], binaries=[], datas=datas, hiddenimports=[], hookspath=[], hooksconfig={}, runtime_hooks=[], excludes=[])
 pyz = PYZ(a.pure)
-exe = EXE(pyz, a.scripts, [], exclude_binaries=True, name="Wk Calculator", debug=False, bootloader_ignore_signals=False, strip=False, upx=True, console=False)
-coll = COLLECT(exe, a.binaries, a.datas, strip=False, upx=True, upx_exclude=[], name="Wk Calculator")
+exe = EXE(pyz, a.scripts, a.binaries, a.datas, [], name="Wk Calculator", debug=False, bootloader_ignore_signals=False, strip=False, upx=True, console=False)

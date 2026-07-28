@@ -4,23 +4,18 @@ build-backend = "hatchling.build"
 
 [project]
 name = "wk-calculator"
-version = "1.0.0"
-description = "Offline Windows carriageway lighting design-width calculator"
+version = "0.1.0"
+description = "Local browser calculator for road carriageway Wk"
 readme = "README.md"
-requires-python = ">=3.11,<3.14"
-dependencies = ["PySide6>=6.7", "pydantic>=2.7"]
+requires-python = ">=3.11"
+dependencies = ["streamlit>=1.35", "pydantic>=2.7"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "hypothesis>=6", "pytest-qt>=4", "ruff>=0.6", "mypy>=1.10"]
-build = ["pyinstaller>=6"]
-
-[project.gui-scripts]
-wk-calculator = "wkcalc.__main__:main"
+test = ["pytest>=8", "hypothesis>=6"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/wkcalc"]
+packages = ["wkcalc"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
 addopts = "-q"
