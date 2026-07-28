@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "default": {
+    "maximum_side_allowance_m": 3.0,
+    "authority_rule": "none"
+  },
+  "example_authority": {
+    "display_name": "Example authority",
+    "maximum_side_allowance_m": 3.0,
+    "authority_rule": "none",
+    "authority_width_m": null,
+    "notes": "Authority confirmation required before issue."
+  }
+}
