@@ -4,21 +4,17 @@ build-backend = "hatchling.build"
 
 [project]
 name = "wk-calculator"
-version = "0.2.0"
-description = "Native Windows desktop calculator for road carriageway Wk"
+version = "0.1.0"
+description = "Local browser calculator for road carriageway Wk"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = ["PySide6>=6.7", "pydantic>=2.7"]
+dependencies = ["streamlit>=1.35", "pydantic>=2.7"]
 
 [project.optional-dependencies]
 test = ["pytest>=8", "hypothesis>=6"]
-build = ["pyinstaller>=6"]
-
-[project.gui-scripts]
-wk-calculator = "ui.main_window:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["wkcalc", "ui"]
+packages = ["wkcalc"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
