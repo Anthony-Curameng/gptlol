@@ -25,7 +25,6 @@ python -m pip install -e '.[test]'
 streamlit run app.py
 ```
 
-Streamlit opens the app in the default browser, normally at <http://localhost:8501>. All entered data remains within the local Streamlit process; the initial version has no database.
 
 ## Calculation rules
 
